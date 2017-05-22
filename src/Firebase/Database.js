@@ -1,5 +1,7 @@
 'use strict'
 
+var firebase = require('firebase')
+
 exports.onValue = function (path) {
   return function (callback) {
     return function () {

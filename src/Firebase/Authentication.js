@@ -1,5 +1,7 @@
 'use strict'
 
+var firebase = require('firebase')
+
 var Control_Monad_Aff = require('../Control.Monad.Aff')
 var Data_Maybe = require('../Data.Maybe')
 
