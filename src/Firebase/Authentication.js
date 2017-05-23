@@ -56,6 +56,10 @@ exports.onAuthStateChanged = function (callback) {
   }
 }
 
+exports.signOut = function() {
+  firebase.auth().signOut()
+}
+
 /*----------------------------------------------------------------------------*/
 
 var nullToNothing = function (value) {

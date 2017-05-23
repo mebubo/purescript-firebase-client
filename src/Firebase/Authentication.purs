@@ -11,6 +11,7 @@ module Firebase.Authentication
   , addScope
   , signInWithPopup
   , onAuthStateChanged
+  , signOut
 
   , User
   , userID
@@ -62,6 +63,10 @@ foreign import onAuthStateChanged
   :: forall eff
   . (Boolean -> Eff (firebase :: FIREBASE | eff) Unit)
   -> Eff (firebase :: FIREBASE | eff) Unit
+
+foreign import signOut
+  :: forall eff
+  . Eff (firebase :: FIREBASE | eff) Unit
 
 --------------------------------------------------------------------------------
 
