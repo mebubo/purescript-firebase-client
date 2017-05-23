@@ -44,6 +44,18 @@ exports.signInWithPopup = function (provider) {
   }
 }
 
+exports.onAuthStateChanged = function (callback) {
+  return function () {
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        callback(true)()
+      } else {
+        callback(false)()
+      }
+    })
+  }
+}
+
 /*----------------------------------------------------------------------------*/
 
 var nullToNothing = function (value) {

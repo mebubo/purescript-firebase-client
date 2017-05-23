@@ -10,6 +10,7 @@ module Firebase.Authentication
   , newTwitterProvider
   , addScope
   , signInWithPopup
+  , onAuthStateChanged
 
   , User
   , userID
@@ -56,6 +57,11 @@ foreign import signInWithPopup
   :: ∀ ui eff
    . Provider (popup :: PopupUI | ui)
   -> Aff (firebase :: FIREBASE | eff) Unit
+
+foreign import onAuthStateChanged
+  :: forall eff
+  . (Boolean -> Eff (firebase :: FIREBASE | eff) Unit)
+  -> Eff (firebase :: FIREBASE | eff) Unit
 
 --------------------------------------------------------------------------------
 
