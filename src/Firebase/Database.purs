@@ -1,6 +1,7 @@
 module Firebase.Database
   ( onValue
   , write
+  , push
   ) where
 
 import Control.Monad.Eff (Eff)
@@ -16,6 +17,12 @@ foreign import onValue
 
 foreign import write
   :: ∀ eff
+   . String
+  -> Json
+  -> Eff (firebase :: FIREBASE | eff) Unit
+
+foreign import push
+  :: forall eff
    . String
   -> Json
   -> Eff (firebase :: FIREBASE | eff) Unit

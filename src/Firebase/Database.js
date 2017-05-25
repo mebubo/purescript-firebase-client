@@ -24,3 +24,12 @@ exports.write = function (path) {
         }
     }
 }
+
+exports.push = function (path) {
+  return function (value) {
+    return function () {
+      var newRef = firebase.database().ref(path).push()
+      newRef.set(value)
+    }
+  }
+}
