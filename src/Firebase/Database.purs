@@ -5,24 +5,24 @@ module Firebase.Database
   ) where
 
 import Control.Monad.Eff (Eff)
-import Data.Argonaut.Core (Json)
 import Firebase (FIREBASE)
 import Prelude
+import Data.Foreign (Foreign)
 
 foreign import onValue
   :: ∀ eff
    . String
-  -> (Json -> Eff (firebase :: FIREBASE | eff) Unit)
+  -> (Foreign -> Eff (firebase :: FIREBASE | eff) Unit)
   -> Eff (firebase :: FIREBASE | eff) (Eff (firebase :: FIREBASE | eff) Unit)
 
 foreign import write
   :: ∀ eff
    . String
-  -> Json
+  -> Foreign
   -> Eff (firebase :: FIREBASE | eff) Unit
 
 foreign import push
   :: forall eff
    . String
-  -> Json
+  -> Foreign
   -> Eff (firebase :: FIREBASE | eff) Unit
